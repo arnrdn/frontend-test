@@ -1,7 +1,7 @@
 <template>
   <li class="list__item">
-  <img src="item.imgLink" alt="">
-  <h3>{{item.title}}</h3>
+    <img src="item.imgLink" alt="">
+    <h3>{{item.title}}</h3>
   </li>
 </template>
 
