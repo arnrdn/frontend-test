@@ -1,7 +1,9 @@
 <template>
   <li class="list__item">
-    <img src="item.imgLink" alt="">
-    <h3>{{item.title}}</h3>
+    <img class="list__img" :src="item.imgLink" :alt="`${item.id} photo`" />
+    <h3 class="list__heading-3">{{ item.title }}</h3>
+    <p class="list__paragraph">{{ item.body }}</p>
+    <h2 class="list__heading-2">{{ item.price }}</h2>
   </li>
 </template>
 
@@ -11,12 +13,13 @@ export default {
     item: {
       type: Object,
       required: true,
-    }
-  }
-
-}
+    },
+  },
+};
 </script>
 
-<style>
-
+<style lang="scss">
+.list__img {
+  height: 100px;
+}
 </style>

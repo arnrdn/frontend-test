@@ -1,15 +1,18 @@
 <template>
-  <div>
-    <card-list/>
+  <div class="app">
+    <h1 class="heading-1">Добавление товара</h1>
+    <add-form class="add-form" />
+    <card-list class="card-list" />
   </div>
 </template>
 
 <script>
-import CardList from './components/CardList.vue'
+import CardList from './components/CardList.vue';
+import AddForm from './components/AddForm.vue';
 export default {
-  components: {CardList},
+  components: { CardList, AddForm },
   name: 'App',
-}
+};
 </script>
 
 <style lang="scss">
@@ -28,4 +31,12 @@ html {
   box-sizing: border-box;
 }
 
+.app {
+  display: grid;
+  grid-template-columns: min-content max-content;
+}
+
+.add-form {
+  grid-column: 1/2;
+}
 </style>
