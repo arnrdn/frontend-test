@@ -16,24 +16,30 @@ export default {
 </script>
 
 <style lang="scss">
-* {
-  padding: 0;
-  margin: 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap');
 
 *,
 *::before,
 *::after {
+  padding: 0;
+  margin: 0;
   box-sizing: inherit;
-}
-
-html {
   box-sizing: border-box;
 }
 
 .app {
+  padding: 2rem;
+  min-width: 100%;
+  height: 100vh;
+  background-color: $app-bg-color;
+
   display: grid;
-  grid-template-columns: min-content max-content;
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 1rem;
+
+  font-family: $font;
+  color: $color-font-primary;
 }
 
 .add-form {

@@ -1,5 +1,11 @@
 <template>
-  <input :value="modelValue" @input="updateInput" type="text" class="input" />
+  <input
+    required
+    :value="modelValue"
+    @input="updateInput"
+    type="text"
+    class="input"
+  />
 </template>
 
 <script>
@@ -18,6 +24,13 @@ export default {
 
 <style lang="scss" scoped>
 .input {
-  border: 2px solid black;
+  @include user-input;
+  &:not(:last-of-type) {
+    margin-bottom: 1rem;
+  }
+
+  &:last-of-type {
+    margin-bottom: 1.5rem;
+  }
 }
 </style>

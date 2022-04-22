@@ -18,7 +18,9 @@ export default {
 
 <style lang="scss" scoped>
 .list {
+  list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, max-content));
+  grid-template-columns: repeat(auto-fit, minmax($min-width, max-content));
+  gap: 1rem;
 }
 </style>
