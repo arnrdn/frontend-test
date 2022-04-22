@@ -1,43 +1,45 @@
 <template>
-  <form class="form">
-    <label class="form__label form__label--marked" for="title">
-      Наименование товара
-    </label>
-    <my-input
-      v-model="item.title"
-      type="text"
-      name="title"
-      placeholder="Введите наименование товара"
-    />
-    <label class="form__label" for="body"> Описание товара </label>
-    <textarea
-      v-model="item.body"
-      class="form__textarea"
-      height="50"
-      type="text"
-      name="body"
-      placeholder="Введите описание товара"
-    />
-    <label class="form__label form__label--marked" for="link">
-      Ссылка на изображение товара
-    </label>
-    <my-input
-      v-model="item.link"
-      type="text"
-      name="link"
-      placeholder="Введите ссылку"
-    />
-    <label class="form__label form__label--marked" for="price">
-      Цена товара
-    </label>
-    <my-input
-      v-model="item.price"
-      type="text"
-      name="price"
-      placeholder="Введите цену"
-    />
-    <button class="btn">Добавить товар</button>
-  </form>
+  <ValidationObserver v-slot="{ invalid }">
+    <form class="form" @submit.prevent="onSubmit">
+      <label class="form__label form__label--marked" for="title">
+        Наименование товара
+      </label>
+      <my-input
+        v-model="item.title"
+        type="text"
+        name="title"
+        placeholder="Введите наименование товара"
+      />
+      <label class="form__label" for="body"> Описание товара </label>
+      <textarea
+        v-model="item.body"
+        class="form__textarea"
+        height="50"
+        type="text"
+        name="body"
+        placeholder="Введите описание товара"
+      />
+      <label class="form__label form__label--marked" for="link">
+        Ссылка на изображение товара
+      </label>
+      <my-input
+        v-model="item.imgLink"
+        type="text"
+        name="link"
+        placeholder="Введите ссылку"
+      />
+      <label class="form__label form__label--marked" for="price">
+        Цена товара
+      </label>
+      <my-price
+        v-model="item.price"
+        type="text"
+        name="price"
+        placeholder="Введите цену"
+      />
+      <button class="btn" :disabled="invalid">Добавить товар</button>
+    </form>
+  </ValidationObserver>
 </template>
 
 <script>
@@ -47,10 +49,16 @@ export default {
       item: {
         title: '',
         body: '',
-        link: '',
+        imgLink: '',
         price: '',
       },
     }
+  },
+  methods: {
+    onSubmit() {
+      this.item.id = Date.now()
+      this.$store.commit('addItem', this.item)
+    },
   },
 }
 </script>
@@ -94,10 +102,18 @@ export default {
     border: none;
     padding: 0.625rem;
     font-weight: 600;
-    background-color: $color-bg-btn-disabled;
     border-radius: 10px;
-    color: $color-font-input;
     font-size: 0.75rem;
+    background-color: $green;
+    color: #fff;
+    transition: all 0.2s;
+    cursor: pointer;
+
+    &:disabled {
+      cursor: default;
+      background-color: $color-bg-btn-disabled;
+      color: $color-font-input;
+    }
   }
 }
 </style>

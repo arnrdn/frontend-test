@@ -56,6 +56,6 @@ export const mutations = {
     state.items.push(item)
   },
   removeItem(state, item) {
-    state.items.filter((i) => i.id !== item.id)
+    state.items.splice(state.items.indexOf(item), 1)
   },
 }

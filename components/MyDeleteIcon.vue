@@ -36,7 +36,7 @@
 
 <script>
 export default {
-  name: 'my-delete-icon',
+  name: 'MyDeleteIcon',
 }
 </script>
 
