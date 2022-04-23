@@ -1,6 +1,7 @@
 <template>
-  <ValidationProvider v-slot="{ errors }" rules="required">
+  <ValidationProvider v-slot="{ errors }" rules="integer">
     <input
+      required
       :placeholder="placeholder"
       :value="value"
       type="text"
@@ -15,7 +16,7 @@
 import global from '../mixins/global'
 
 export default {
-  name: 'MyInput',
+  name: 'MyPrice',
   mixins: [global],
   methods: {
     updateInput(e) {
@@ -36,11 +37,6 @@ export default {
   font-size: 0.5rem;
   margin-top: 4px;
 
-  &:not(:last-of-type) {
-    margin-bottom: 1rem;
-  }
-  &:last-of-type {
-    margin-bottom: 1.5rem;
-  }
+  margin-bottom: 1.5rem;
 }
 </style>

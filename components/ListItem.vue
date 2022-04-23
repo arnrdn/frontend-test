@@ -4,7 +4,7 @@
     @mouseover="showDelete = true"
     @mouseleave="showDelete = false"
   >
-    <button :class="`delete-btn ${toggleDelete}`">
+    <button :class="`delete-btn ${toggleDelete}`" @click="deleteItem">
       <my-delete-icon class="delete-btn__icon" />
     </button>
     <div class="list__img-container">
@@ -36,12 +36,19 @@ export default {
       return this.showDelete ? 'active' : null
     },
   },
+  methods: {
+    deleteItem() {
+      this.$store.commit('removeItem', this.item)
+    },
+  },
 }
 </script>
 
 <style lang="scss">
+/* DELETE BUTTON */
+
 .delete-btn {
-  background-color: #ff8484;
+  background-color: $pale-red;
   top: 0;
   right: 0;
   opacity: 0;
@@ -59,6 +66,10 @@ export default {
     cursor: pointer;
   }
 
+  &:active {
+    transform: scale(0.9);
+  }
+
   &__icon {
     padding: 0.45rem;
     display: block;
@@ -67,6 +78,9 @@ export default {
     width: 2rem;
   }
 }
+
+/* LIST ITEM */
+
 .list__item {
   position: relative;
   border-radius: $radius;
@@ -83,8 +97,11 @@ export default {
     transform: scale(1.025);
   }
 }
+
 .list__img {
+  height: 12.5rem;
   width: $min-width;
+  object-fit: cover;
   border-top-left-radius: $radius;
   border-top-right-radius: $radius;
 }

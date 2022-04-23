@@ -18,7 +18,7 @@ export default {
 .app {
   padding: 2rem;
   min-width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: $app-bg-color;
   display: grid;
   grid-template-columns: min-content 1fr;
