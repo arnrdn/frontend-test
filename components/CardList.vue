@@ -9,9 +9,11 @@
 
 <script>
 export default {
-  computed: {
-    items() {
-      return this.$store.state.items
+  props: {
+    items: {
+      type: Array,
+      default: () => [],
+      required: true,
     },
   },
 }

@@ -88,6 +88,9 @@ export default {
   background-color: $component-bg-color;
   align-self: start;
   border-radius: $radius;
+  box-shadow: 0px 6px 10px 0px rgba(0, 0, 0, 0.1);
+
+  animation: enter 0.6s ease;
 
   &__label {
     font-size: 0.625rem;

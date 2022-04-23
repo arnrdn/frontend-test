@@ -1,14 +1,36 @@
 <template>
   <div class="app">
     <h1 class="heading-1">Добавление товара</h1>
+    <my-select
+      v-model="selectedOption"
+      :options="options"
+      @input="setSelectedOption"
+    />
     <add-form class="add-form" />
-    <card-list class="card-list" />
+    <card-list :items="sortedItems" class="card-list" />
   </div>
 </template>
 
 <script>
+import { mapState, mapMutations, mapGetters } from 'vuex'
+
 export default {
   name: 'App',
+  computed: {
+    ...mapState({
+      selectedOption: (state) => state.selectedOption,
+      options: (state) => state.sortOptions,
+      items: (state) => state.items,
+    }),
+    ...mapGetters({
+      sortedItems: 'sortedItems',
+    }),
+  },
+  methods: {
+    ...mapMutations({
+      setSelectedOption: 'setSelectedOption',
+    }),
+  },
 }
 </script>
 
@@ -29,5 +51,9 @@ export default {
 }
 .add-form {
   grid-column: 1/2;
+}
+
+.select {
+  justify-self: start;
 }
 </style>
