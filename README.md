@@ -14,7 +14,7 @@
 
 ## Live Demo
 
-- [Здесь вы можете посмотреть на "живую" версию приложения!](https://flourishing-sunburst-b77a44.netlify.app)
+- [Здесь вы можете посмотреть на "живую" версию приложения!](https://idyllic-taffy-87754c.netlify.app/)
 
 ## Getting Started
 
