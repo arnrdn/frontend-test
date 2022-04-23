@@ -19,6 +19,7 @@ export default {
     './assets/scss/main.scss',
     './assets/scss/variables.scss',
     './assets/scss/mixins.scss',
+    './assets/scss/keyframes.scss',
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

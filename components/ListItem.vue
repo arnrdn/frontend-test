@@ -45,6 +45,8 @@ export default {
 </script>
 
 <style lang="scss">
+/* DELETE BUTTON */
+
 .delete-btn {
   background-color: $pale-red;
   top: 0;
@@ -76,6 +78,9 @@ export default {
     width: 2rem;
   }
 }
+
+/* LIST ITEM */
+
 .list__item {
   position: relative;
   border-radius: $radius;
@@ -92,8 +97,9 @@ export default {
     transform: scale(1.025);
   }
 }
+
 .list__img {
-  height: 13.75rem;
+  height: 12.5rem;
   width: $min-width;
   object-fit: cover;
   border-top-left-radius: $radius;
