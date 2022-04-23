@@ -13,12 +13,11 @@
 </template>
 
 <script>
+import global from '../mixins/global'
+
 export default {
   name: 'MyPrice',
-  props: {
-    value: [String, Number],
-    placeholder: String,
-  },
+  mixins: [global],
   methods: {
     updateInput(e) {
       this.$emit('input', e.target.value)

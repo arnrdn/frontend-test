@@ -1,6 +1,9 @@
 <template>
-  <ValidationObserver v-slot="{ invalid }">
-    <form class="form" @submit.prevent="onSubmit">
+  <ValidationObserver v-slot="{ invalid, reset }" ref="form">
+    <form class="form" @submit.prevent="onSubmit" @reset.prevent="reset">
+      <div v-if="success" class="success">
+        <h5 class="success__heading">Товар добавлен!</h5>
+      </div>
       <label class="form__label form__label--marked" for="title">
         Наименование товара
       </label>
@@ -37,6 +40,7 @@
         name="price"
         placeholder="Введите цену"
       />
+
       <button class="btn" :disabled="invalid">Добавить товар</button>
     </form>
   </ValidationObserver>
@@ -52,12 +56,24 @@ export default {
         imgLink: '',
         price: '',
       },
+      success: false,
     }
   },
   methods: {
     onSubmit() {
       this.item.id = Date.now()
       this.$store.commit('addItem', this.item)
+      this.success = true
+      this.$refs.form.reset()
+      this.item = {
+        title: '',
+        body: '',
+        imgLink: '',
+        price: '',
+      }
+      setTimeout(() => {
+        this.success = false
+      }, 5000)
     },
   },
 }
@@ -114,6 +130,18 @@ export default {
       background-color: $color-bg-btn-disabled;
       color: $color-font-input;
     }
+  }
+}
+
+.success {
+  background-color: $green;
+  border-radius: $radius;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  &__heading {
+    text-align: center;
+    color: #fff;
+    font-weight: 400;
   }
 }
 </style>
