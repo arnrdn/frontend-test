@@ -11,3 +11,10 @@
     color: $color-font-input;
   }
 }
+
+@mixin respond() {
+  @media only screen and (max-width: 46.8em) {
+    // 600px
+    @content;
+  }
+}

@@ -48,6 +48,11 @@ export default {
   gap: 1rem;
   font-family: $font;
   color: $color-font-primary;
+
+  @include respond {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
 }
 .add-form {
   grid-column: 1/2;
@@ -55,5 +60,9 @@ export default {
 
 .select {
   justify-self: start;
+
+  @include respond {
+    justify-self: center;
+  }
 }
 </style>
