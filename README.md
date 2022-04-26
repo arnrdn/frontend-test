@@ -9,7 +9,7 @@
 ## Built With
 
 - HTML, SASS
-- Nuxt js
+- Nuxt, Vuex
 - VeeValidate
 
 ## Live Demo
