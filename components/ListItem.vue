@@ -4,7 +4,10 @@
     @mouseover="showDelete = true"
     @mouseleave="showDelete = false"
   >
-    <button :class="`delete-btn ${toggleDelete}`" @click="deleteItem">
+    <button
+      :class="`delete-btn ${toggleDelete}`"
+      @click="commitDeleteItem(item)"
+    >
       <my-delete-icon class="delete-btn__icon" />
     </button>
     <div class="list__img-container">
@@ -19,6 +22,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   props: {
     item: {
@@ -37,9 +41,9 @@ export default {
     },
   },
   methods: {
-    deleteItem() {
-      this.$store.commit('removeItem', this.item)
-    },
+    ...mapActions({
+      commitDeleteItem: 'commitDeleteItem',
+    }),
   },
 }
 </script>
