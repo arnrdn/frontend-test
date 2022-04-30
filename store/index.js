@@ -96,3 +96,9 @@ export const getters = {
     }
   },
 }
+
+export const actions = {
+  commitDeleteItem({ commit }, item) {
+    commit('removeItem', item)
+  },
+}
